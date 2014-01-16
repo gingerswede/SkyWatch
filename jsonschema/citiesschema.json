@@ -1,0 +1,43 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema#",
+	"title" : "Cities list",
+	"description" : "A list of cities with the same (or similar) names.",
+	"type" : "array",
+	"items" : {
+		"title" : "city",
+		"description" : "Information about an individual city.",
+		"type" : "object",
+		"properties" : {
+			"name" : {
+				"description" : "Name of the city.",
+				"type" : "string",
+		"required" : true
+			},
+			"county" : {
+				"description" : "The county that the city is situated in.",
+				"type" : "string",
+		"required" : true
+			},
+			"country" : {
+				"description" : "The country that the city is situated in.",
+				"type" : "string",
+		"required" : true
+			},
+			"lat" : {
+				"description" : "Lattitude",
+				"type" : "string",
+		"required" : true
+			},
+			"lng" : {
+				"description" : "Longitude",
+				"type" : "string",
+		"required" : true
+			},
+			"comment" : {
+				"description" : "information about the object",
+				"type" : "string",
+		"required" : true
+			}
+		}
+	}
+}

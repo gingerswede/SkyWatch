@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>SkyWatch - Weather information site.</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Emil Carlsson" />
+
+		<meta name="viewport" content="initial-scale=1.0" />
+		
+		<link rel="shortcut icon" href="pic/favicon.ico" />
+		<link rel="apple-touch-icon" href="pic/favicon.png"/>
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script src="js/settingsAndGlobals.js"></script>
+		<script src="js/ajax.js"></script>
+		<script src="js/graphicalManupilation.js"></script>
+		<script src="js/localStorageAccessors.js"></script>
+		<script src="js/events.js"></script>
+	</head>
+
+	<body>
+		<div id="javascriptNotActive">
+			<p>
+				This site requires javascript activated.
+			</p>
+		</div>
+		<div data-role="page" data-theme="b" style="min-height:100%;">
+			<div id="mainMenu" data-role="header" data-position="fixed">
+				<a href="#useGPS" data-rel="" data-role="button" data-inline="false" data-theme="b" class="ui-btn-left"
+				aria-haspopup="true" aria-owns="#popupLogin" data-mini="true" data-icon="star">
+					<span class="ui-btn-text" id="getCoorsViaGPS">Via GPS</span>
+				</a>
+				
+				<h1>SkyWatch</h1>
+				
+				<a href="#searchForm" data-rel="popup" data-role="button" data-inline="false" data-theme="e" class="ui-btn-right"
+				aria-haspopup="true" aria-owns="#popupLogin" data-mini="true" data-icon="search">
+					<span class="ui-btn-text">Sök stad</span>
+				</a>
+			</div>
+			
+			<div data-role="content" id="mainContent">
+				<div data-role="content" id="splashScreen" style="max-width: 300px; margin: auto; display: block;">
+						<img src="pic/clouds.png" alt="SkyWatch - Väderleksrapporter" style="width: 100%;" />
+				</div>
+				<div data-role="content" id="aboutSkyWatch" style="min-height: 100%; display: visible;">
+					<p>
+						SkyWatch är en väderapplikation som ger femdygnsprognoser. Det går att söka efter prognoser via antingen
+						stadsnamn eller via din telefons GPS-position. 
+					</p>
+					<p>
+						Genom att trycka på knappen "via GPS" kommer information om
+						var du befinner dig att hämtas ifrån din telefon. Ingen av denna information sparas av oss på ett vis som
+						kan bindas till dig som användare.
+					</p>
+					<p>
+						Platsinformation tillhandahålls av: <a href="http://www.geonames.org">GeoNames.org</a>.
+					</p>
+					<p>
+						Väderinformation tillhandahålls av: <a href="http://www.yr.no">yr.no</a>.
+					</p>
+					<p>
+						Väderikoner skapade av: <a href="http://www.dotvoid.se">DotVoid.se</a>
+					</p>
+					<p>
+						SkyWatch är skapad av <a href="http://www.gingerswede.com">Emil Carlsson</a>.
+					</p>
+					<p>
+						Disclaimer: SkyWatch does not guarantee the accuracy of location placing nor does it take responcibility of forecast accuracy.
+					</p>
+				</div>
+				<div data-role="content" id="previousSearches" style="min-height: 100%; display: hidden;">
+					<div data-role="controlgroup" id="prevSearchesList" data-inset="false"></div>
+				</div>
+				
+				<div data-role="content" id="citySelection" style="min-height: 100%; display: hidden;">
+					<div data-role="controlgroup" id="citySelectionList"></div>
+				</div>
+				
+				<div data-role="collapsible-set" class="activeForecastSet" data-inset="false" data-theme="a"></div>
+				
+				<div data-role="content" id="errorMessages" style="min-height: 100%; display: hidden;"></div>
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" data-type="horizontal">
+					<ul>
+						<li>
+							<a href="#previousSearches" id="previousSearchesLink">Tidigare sökningar</a>
+						</li>
+						<li>
+							<a href="#aboutSkyWatch" id="aboutSkyWatchLink">Om SkyWatch</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+			<div class="ui-popup-container ui-popup-active" id="searchForm-popup" tabindex="0" style="width: 200px; margin: auto;">
+				<div data-role="popup" id="searchForm" data-theme="b" class="ui-corner-all ui-popup ui-body-a ui-overlay-shadow" 
+				aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="window">
+					<form>
+						<div style="padding: 10px; margin: auto;">
+							<input type="text" id="areaNameField" class="areaNameField" name="areaNameField" placeholder="Stadsnamn" 
+							data-theme="a" class="ui-input-text ui-body-a ui-corner-all ui-shadow-inset" />
+							<button data-role="button" id="searchWeatherForArea" type="submit" data-theme="b" area-disable="false">Sök väder</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		
+		</div>
+	</body>
+</html>

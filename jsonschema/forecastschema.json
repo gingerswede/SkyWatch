@@ -1,0 +1,96 @@
+{
+	"$schema": "http://json-schema.org/draft-03/schema#",
+	"title": "forecast list",
+	"description": "A city with the forecasts that belongs to that city for the comming 5 days.",
+	"type": "object",
+	"properties": {
+		"city": {
+			"description": "Information about an individual city.",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "Name of the city.",
+					"type": "string",
+					"required": true
+				},
+				"county": {
+					"description": "The county that the city is situated in.",
+					"type": "string",
+					"required": true
+				},
+				"country": {
+					"description": "The country that the city is situated in.",
+					"type": "string",
+					"required": true
+				},
+				"lat": {
+					"description": "Lattitude",
+					"type": "number",
+					"required": true
+				},
+				"lng": {
+					"description": "Longitude",
+					"type": "number",
+					"required": true
+				},
+				"comment": {
+					"description": "information about the object",
+					"type": "string",
+					"required": true
+				}
+			}
+		},
+		"forcasts": {
+			"description": "collection of forecasts",
+			"type": "array",
+			"items": {
+				"title": "forcast",
+				"descriptiont": "forecast object",
+				"type": "object",
+				"properties": {
+					"date": {
+						"description": "the date-time that the forecast is for",
+						"type": "string",
+						"format": "date-time",
+						"required": true
+					},
+					"temp": {
+						"description": "temperature",
+						"type": "string",
+						"required": true
+					},
+					"pressure": {
+						"description": "Air preasure in hpa",
+						"type": "string",
+						"required": true
+					},
+					"winddirection": {
+						"description": "Wind direction in format of S for south, SE for south east, etc",
+						"type": "string",
+						"required": true
+					},
+					"windspeed": {
+						"description": "wind speed in meters per second",
+						"type": "string",
+						"required": true
+					},
+					"symbol": {
+						"description": "Icon symbol from yr.no",
+						"type": "string",
+						"required": true
+					},
+					"percipitation": {
+						"description": "Perciptiation in mm",
+						"type": "string",
+						"required": true
+					},
+					"comment": {
+						"description": "Information about the forecast origin",
+						"type": "string",
+						"required": true
+					}
+				}
+			}
+		}
+	}
+}

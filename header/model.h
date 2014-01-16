@@ -1,0 +1,14 @@
+<?php
+require_once('model/Forecast.php');
+require_once('model/RegionWeatherReport.php');
+require_once('model/GoogleLocation.php');
+require_once('model/XmlHandler.php');
+require_once('model/FTPConnector.php');
+require_once('model/GeonamesAPI.php');
+require_once('model/YahooGeocode.php');
+require_once('model/YrApi.php');
+require_once('model/city.php');
+require_once('model/cityAddon.php');
+require_once('model/ErrorObject.php');
+require_once('helpers/json_properencode.php');
+require_once('model/ClearCache.php');

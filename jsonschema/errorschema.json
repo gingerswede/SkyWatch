@@ -1,0 +1,17 @@
+{
+	"$schema":"http://json-schema.org/draft-03/schema#",
+	"title" : "Cities list",
+	"description" : "A list of cities with the same (or similar) names.",
+	"type" : "object",
+	"properties" : {
+		"Error" : {
+			"description" : "True if an error occured.",
+			"type" : "boolean"
+		}, 
+		"Cause" : {
+			"description" : "The cause of the error. (Error message)",
+			"type" : "string"
+		}
+	},
+	"required" : ["Error", "Cause"]
+}
